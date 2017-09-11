@@ -21,6 +21,9 @@ class DbAppListsController extends SugarController
 
         parent::action_save();
 
+        if(isset($_POST['description'])) {
+            unset($_POST['description']);
+        }
         $itemsModule = 'DbAppListStrings';
         $fieldName = 'DbAppListStringsField';
         if(isset($_POST[$itemsModule])) {
