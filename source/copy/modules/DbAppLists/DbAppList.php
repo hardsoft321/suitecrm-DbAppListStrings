@@ -109,7 +109,7 @@ class DbAppList extends Basic
 
     public static function getOptions($listName, $lang, $returnArchived = true, $ensureValue = null)
     {
-        global $db;
+        $db = !empty($GLOBALS['db']) ? $GLOBALS['db'] : DBManagerFactory::getInstance();
 
         $options = array();
         $options[''] = '';
@@ -135,7 +135,7 @@ WHERE
 
     public static function getLangAppListStrings($lang)
     {
-        global $db;
+        $db = !empty($GLOBALS['db']) ? $GLOBALS['db'] : DBManagerFactory::getInstance();
 
         $options = array();
 
