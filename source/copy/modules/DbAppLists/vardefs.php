@@ -13,7 +13,7 @@ $dictionary['DbAppList'] = array(
           'name' => 'uniq_name',
           'vname' => 'LBL_UNIQ_NAME',
           'type' => 'varchar',
-          'len' => '20',
+          'len' => '50',
           'audited' => true,
           'required' => true,
         ),
