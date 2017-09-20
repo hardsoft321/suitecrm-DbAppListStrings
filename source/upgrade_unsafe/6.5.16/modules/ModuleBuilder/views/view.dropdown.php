@@ -156,6 +156,13 @@ class ViewDropdown extends SugarView
 			$smarty->assign('prepopulated_name', $use_name);
 		}
 
+        //START HS321 DbAppListStrings
+        // не даем редактировать db-поля через студию
+        $dropdown_name = !empty($vardef['options']) ? $vardef['options'] : $_REQUEST['dropdown_name'];
+        $dbRes = $GLOBALS['db']->query("SELECT 1 FROM dbapplists WHERE deleted = 0 AND uniq_name = '".$GLOBALS['db']->quote($dropdown_name)."'");
+        $smarty->assign('isDbAppList', (bool)$GLOBALS['db']->fetchByAssoc($dbRes, false));
+        //END HS321 DbAppListStrings
+
 		$smarty->assign('module_name', $module_name);
 		$smarty->assign('APP', $GLOBALS['app_strings']);
 		$smarty->assign('MOD', $GLOBALS['mod_strings']);

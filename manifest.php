@@ -11,7 +11,7 @@ $manifest = array(
     'is_uninstallable' => true,
     'published_date' => '2017-08-14',
     'type' => 'module',
-    'version' => '1.0.3',
+    'version' => '1.0.4',
 );
 $installdefs = array(
     'id' => 'DbAppListStrings',

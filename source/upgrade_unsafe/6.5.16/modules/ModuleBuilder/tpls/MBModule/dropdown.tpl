@@ -51,10 +51,14 @@
 <table>
 	<tr>
 		<td colspan='3'>
+            {if $isDbAppList}{* PEA HS321 DBAPPLISTSTRINGS *}
+            <span>Данный справочник редактируется в <a href="index.php?module=DbAppLists&action=index&searchFormTab=basic_search&query=true&uniq_name_basic={$dropdown_name}">Модуле db-справочников</a></span>
+            {else}
 			<input id = "saveBtn" type='button' class='button' onclick='SimpleList.handleSave()' value='{$APP.LBL_SAVE_BUTTON_LABEL}'>
 			<input type='button' class='button' onclick='SimpleList.undo()' value='{$MOD.LBL_BTN_UNDO}'>
 			<input type='button' class='button' onclick='SimpleList.redo()' value='{$MOD.LBL_BTN_REDO}'>
 			<input type='button' class='button' name='cancel' value='{$MOD.LBL_BTN_CANCEL}' onclick='ModuleBuilder.tabPanel.get("activeTab").close()'>
+            {/if}
 		</td>
 	</tr>
 	<tr>
@@ -116,6 +120,8 @@
 		   </ul>
 		</td>
 	</tr>
+    {if $isDbAppList}{* PEA HS321 DBAPPLISTSTRINGS *}
+    {else}
 	<tr>
 		<td colspan='3'>
 		   <table width='100%'>
@@ -136,6 +142,7 @@
    			<input type='button' class='button' value='{$MOD.LBL_BTN_SORT_DESCENDING}' onclick='SimpleList.sortDescending()'>
    		</td>
    	</tr>
+    {/if}
   </table>
   </form>
   {literal}
