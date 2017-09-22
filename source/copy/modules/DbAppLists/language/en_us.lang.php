@@ -12,4 +12,5 @@ $mod_strings = array(
     'LBL_UNIQ_NAME' => 'Unique Name',
     'LBL_DBAPPLISTSTRINGS' => 'Values',
     'LBL_MAXLEN' => 'Max Value Length',
+    'LBL_FIRST_EMPTY' => 'Add empty value',
 );

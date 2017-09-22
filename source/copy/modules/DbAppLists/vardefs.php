@@ -25,6 +25,13 @@ $dictionary['DbAppList'] = array(
             'audited' => true,
             'required' => true,
         ),
+        'first_empty' => array (
+            'name' => 'first_empty',
+            'vname' => 'LBL_FIRST_EMPTY',
+            'type' => 'bool',
+            'default' => '1',
+            'audited' => true,
+        ),
 
         'dbAppListStrings' => array(
             'name' => 'dbAppListStrings',

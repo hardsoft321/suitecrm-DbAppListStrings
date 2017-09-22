@@ -31,6 +31,7 @@ $viewdefs ['DbAppLists'] = array (  'DetailView' =>
       'LBL_INFORMATION' => array (
         array ('name', 'uniq_name'),
         array ('description', 'maxlen'),
+        array ('first_empty', ''),
       ),
       'LBL_DBAPPLISTSTRINGS' => array (
         array(

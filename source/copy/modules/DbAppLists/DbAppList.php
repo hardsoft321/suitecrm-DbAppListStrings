@@ -112,7 +112,10 @@ class DbAppList extends Basic
         $db = !empty($GLOBALS['db']) ? $GLOBALS['db'] : DBManagerFactory::getInstance();
 
         $options = array();
-        $options[''] = '';
+        $first_empty = $db->getOne("SELECT first_empty FROM dbapplists WHERE uniq_name = '".$db->quote($listName)."' AND deleted = 0");
+        if($first_empty) {
+            $options[''] = '';
+        }
 
         $sql = "SELECT als.uniq_name, als.name, als.archive FROM dbapplists al, dbappliststrings als
 WHERE
@@ -139,7 +142,7 @@ WHERE
 
         $options = array();
 
-        $sql = "SELECT al.uniq_name AS list_name, als.uniq_name, als.name, als.archive
+        $sql = "SELECT al.uniq_name AS list_name, al.first_empty, als.uniq_name, als.name, als.archive
 FROM dbapplists al, dbappliststrings als
 WHERE
     als.lang = '".$db->quote($lang)."'
@@ -149,7 +152,7 @@ ORDER BY al.uniq_name, als.sorting";
 
         $dbRes = $db->query($sql);
         while($row = $db->fetchByAssoc($dbRes)) {
-            if(!isset($options[$row['list_name']])) {
+            if(!isset($options[$row['list_name']]) && $row['first_empty']) {
                 $options[$row['list_name']][''] = '';
             }
             $options[$row['list_name']][$row['uniq_name']] = $row['archive'] ? $row['name'].$GLOBALS['app_strings']['LBL_ARCHIVE_VALUE_SUFFIX'] : $row['name'];

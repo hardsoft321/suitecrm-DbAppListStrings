@@ -12,4 +12,5 @@ $mod_strings = array(
     'LBL_UNIQ_NAME' => 'Уникальное имя справочника',
     'LBL_DBAPPLISTSTRINGS' => 'Значения поля',
     'LBL_MAXLEN' => 'Максимальная длина значения',
+    'LBL_FIRST_EMPTY' => 'Пустое значение в начале списка',
 );
